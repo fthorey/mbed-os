@@ -1,4 +1,13 @@
 {
+    "LC4357": {
+        "inherits": ["Target"],
+        "default_toolchain": "GCC_ARM",
+        "extra_labels": ["TI", "TMS570"],
+        "core": "Cortex-M3",
+        "device_has": ["PORTIN", "PORTINOUT", "PORTOUT", "SERIAL"],
+        "supported_toolchains": ["GCC_ARM"],
+        "device_name": "STM32F103RB"
+    },
     "Target": {
         "core": null,
         "default_toolchain": "ARM",
