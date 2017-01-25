@@ -1,4 +1,5 @@
 /* mbed Microcontroller Library
+ * A generic CMSIS include header
  *******************************************************************************
  * Copyright (c) 2016, STMicroelectronics
  * All rights reserved.
@@ -27,48 +28,19 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *******************************************************************************
  */
-#ifndef MBED_OBJECTS_H
-#define MBED_OBJECTS_H
 
-#include "cmsis.h"
-#include "PortNames.h"
-#include "PeripheralNames.h"
-#include "PinNames.h"
+#ifndef MBED_CMSIS_H
+#define MBED_CMSIS_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#define __NVIC_PRIO_BITS          2
 
-#include "gpio_object.h"
+ /*!< Interrupt Number Definition */
+typedef enum
+{
+  NonMaskableInt_IRQn         = -14,
+  SysTick_IRQn                = -1
+} IRQn_Type;
 
-#ifdef __cplusplus
-}
-#endif
-
-struct serial_s {
-    UARTName uart;
-    int index; // Used by irq
-    uint32_t baudrate;
-    uint32_t databits;
-    uint32_t stopbits;
-    uint32_t parity;
-    PinName pin_tx;
-    PinName pin_rx;
-#if DEVICE_SERIAL_ASYNCH
-    uint32_t events;
-#endif
-#if DEVICE_SERIAL_FC
-    uint32_t hw_flow_ctl;
-    PinName pin_rts;
-    PinName pin_cts;
-#endif
-};
-
-struct port_s {
-    __IO uint32_t *reg_dir;
-    __IO uint32_t *reg_mpin;
-    PortName port;
-    uint32_t mask;
-};
+#include "core_cm7.h"
 
 #endif

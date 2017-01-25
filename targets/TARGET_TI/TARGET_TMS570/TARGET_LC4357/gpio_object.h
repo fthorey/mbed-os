@@ -50,19 +50,6 @@ typedef struct {
     __IO uint32_t *reg_pus;
 } gpio_t;
 
-static inline void gpio_write(gpio_t *obj, int value) {
-    MBED_ASSERT(obj->pin != (PinName)NC);
-}
-
-static inline int gpio_read(gpio_t *obj) {
-    MBED_ASSERT(obj->pin != (PinName)NC);
-    return 0;
-}
-
-static inline int gpio_is_connected(const gpio_t *obj) {
-    return obj->pin != (PinName)NC;
-}
-
 #ifdef __cplusplus
 }
 #endif
